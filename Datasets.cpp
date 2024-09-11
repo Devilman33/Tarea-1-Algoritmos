@@ -9,14 +9,19 @@ using namespace std;
 
 int T = 1500000;
 
+// Funcion generateRandomArray()
+// Recibe un entero 'size' que representa el tamaño del array y el tamaño maximo de los numeros dentro de este
 vector<int> generateRandomArray(int size) {
     vector<int> arr(size);
     srand(time(0));
     for (int i = 0; i < size; ++i)
-        arr[i] = rand() % T;  // Genera números aleatorios entre 0 y 999999
+        arr[i] = rand() % T;  
     return arr;
 }
 
+// Funcion Semi_Random_Array()
+// Recibe un entero 'size' que representa el tamaño del array y el tamaño maximo de los numeros dentro de este
+// ademas ordena la primera mitad del array, de forma que queda una mitad ordenada y la otra completamente al azar
 vector<int> Semi_Random_Array(int size) {
     vector<int> arr(size);
     int mid = size / 2;
@@ -35,6 +40,9 @@ vector<int> Semi_Random_Array(int size) {
     return arr;
 }
 
+
+// Funcion saveArrayToFile()
+// Recibe un array de datos y un string con el nombre del archivo donde se guardara el dataset
 void saveArrayToFile(const vector<int>& arr, const string& filename) {
     ofstream outFile(filename);
     if (outFile.is_open()) {
